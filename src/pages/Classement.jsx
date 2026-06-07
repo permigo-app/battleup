@@ -169,7 +169,7 @@ export default function Classement({ user }) {
             <div
               key={m.id}
               onClick={() => setSelected(m)}
-              style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', borderRadius: 12, border, background, cursor: 'pointer' }}
+              style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', borderRadius: 12, border, background: bg, cursor: 'pointer' }}
             >
               <div style={{ width: 28, textAlign: 'center', flexShrink: 0 }}>
                 {isTop3
