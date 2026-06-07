@@ -5,17 +5,6 @@ import { supabase } from '../supabase'
 
 const MEDALS = ['🥇', '🥈', '🥉']
 
-const FAKE_PARTICIPANTS = [
-  { id: 'f1', pseudo: 'Lucas',  total: 1250, today: 0 },
-  { id: 'f2', pseudo: 'Thomas', total: 980,  today: 0 },
-  { id: 'f3', pseudo: 'Marie',  total: 870,  today: 0 },
-  { id: 'f4', pseudo: 'Alex',   total: 760,  today: 0 },
-  { id: 'f5', pseudo: 'Julien', total: 650,  today: 0 },
-  { id: 'f6', pseudo: 'Sarah',  total: 540,  today: 0 },
-  { id: 'f7', pseudo: 'Marc',   total: 430,  today: 0 },
-  { id: 'f8', pseudo: 'Emma',   total: 320,  today: 0 },
-  { id: 'f9', pseudo: 'Kevin',  total: 210,  today: 0 },
-]
 
 const RANK_STYLES = [
   { border: '1px solid rgba(255,215,0,0.45)',   bg: 'rgba(255,215,0,0.05)',  avatarColor: '#FFD700' },
@@ -137,8 +126,7 @@ export default function Classement({ user }) {
   const { getRanking, group, entries } = useGroup(user.group_id)
   const [selected, setSelected] = useState(null)
 
-  const realRanking = getRanking()
-  const ranking = [...realRanking, ...FAKE_PARTICIPANTS].sort((a, b) => b.total - a.total)
+  const ranking = getRanking()
   const challenge = getChallenge(group?.challenge_type || user.group?.challenge_type)
 
   return (
