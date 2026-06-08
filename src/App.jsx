@@ -1,7 +1,8 @@
-import React, { Component, useState, useEffect } from 'react'
+﻿import React, { Component, useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { supabase } from './supabase'
 import Auth from './pages/Auth'
+import Landing from './pages/Landing'
 import MesDefis from './pages/MesDefis'
 import CreateChallenge from './pages/CreateChallenge'
 import Home from './pages/Home'
@@ -38,7 +39,7 @@ class ErrorBoundary extends Component {
           </p>
           <button
             onClick={() => window.location.reload()}
-            style={{ background: '#E8192C', color: '#fff', border: 'none', borderRadius: 12, padding: '13px 28px', fontSize: 14, fontWeight: 700, cursor: 'pointer', marginTop: 8 }}
+            style={{ background: '#8B5CF6', color: '#fff', border: 'none', borderRadius: 12, padding: '13px 28px', fontSize: 14, fontWeight: 700, cursor: 'pointer', marginTop: 8 }}
           >
             Recharger l'app
           </button>
@@ -59,7 +60,7 @@ class ErrorBoundary extends Component {
 function LoadingScreen() {
   return (
     <div style={{ minHeight: '100vh', background: '#0f0f0f', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16 }}>
-      <div style={{ background: '#E8192C', borderRadius: 14, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>💪</div>
+      <div style={{ background: '#8B5CF6', borderRadius: 14, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>💪</div>
       <p style={{ color: '#444', fontSize: 13 }}>Chargement...</p>
     </div>
   )
@@ -71,6 +72,7 @@ function AppInner() {
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
   const [view, setView] = useState('mesdefis')
+  const [authStep, setAuthStep] = useState('landing') // 'landing' | 'register' | 'login'
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -105,7 +107,18 @@ function AppInner() {
   }
 
   if (loading) return <LoadingScreen />
-  if (!authUser) return <Auth />
+
+  if (!authUser) {
+    if (authStep === 'landing') {
+      return (
+        <Landing
+          onStart={() => setAuthStep('register')}
+          onLogin={() => setAuthStep('login')}
+        />
+      )
+    }
+    return <Auth defaultMode={authStep === 'login' ? 'login' : 'register'} />
+  }
 
   if (view === 'create') {
     return (

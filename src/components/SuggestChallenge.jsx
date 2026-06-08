@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { supabase } from '../supabase'
 
 const inputStyle = {
@@ -111,12 +111,12 @@ export default function SuggestChallenge({ userId }) {
                 />
               </div>
 
-              {error && <p style={{ color: '#E8192C', fontSize: 12 }}>{error}</p>}
+              {error && <p style={{ color: '#8B5CF6', fontSize: 12 }}>{error}</p>}
 
               <button
                 type="submit"
                 disabled={loading}
-                style={{ background: '#E8192C', color: '#fff', border: 'none', borderRadius: 10, padding: '12px', fontSize: 14, fontWeight: 700, cursor: 'pointer', opacity: loading ? 0.6 : 1, fontFamily: 'inherit', marginTop: 4 }}
+                style={{ background: '#8B5CF6', color: '#fff', border: 'none', borderRadius: 10, padding: '12px', fontSize: 14, fontWeight: 700, cursor: 'pointer', opacity: loading ? 0.6 : 1, fontFamily: 'inherit', marginTop: 4 }}
               >
                 {loading ? 'Envoi...' : 'Envoyer la proposition'}
               </button>

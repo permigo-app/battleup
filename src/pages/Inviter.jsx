@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useGroup } from '../hooks/useGroup'
 
 const steps = [
@@ -48,7 +48,7 @@ export default function Inviter({ user }) {
       {/* Copy link button */}
       <button
         onClick={() => copy(link, 'link')}
-        style={{ width: '100%', background: copied === 'link' ? '#22c55e' : '#E8192C', color: '#fff', border: 'none', borderRadius: 14, padding: '15px', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '0.3px', marginBottom: '1.5rem', transition: 'background 0.2s', fontFamily: 'inherit' }}
+        style={{ width: '100%', background: copied === 'link' ? '#22c55e' : '#8B5CF6', color: '#fff', border: 'none', borderRadius: 14, padding: '15px', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '0.3px', marginBottom: '1.5rem', transition: 'background 0.2s', fontFamily: 'inherit' }}
       >
         {copied === 'link' ? '✓ LIEN COPIÉ !' : '🔗 COPIER LE LIEN'}
       </button>
@@ -59,7 +59,7 @@ export default function Inviter({ user }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {steps.map((s, i) => (
             <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <div style={{ background: '#E8192C', color: '#fff', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 800, flexShrink: 0 }}>
+              <div style={{ background: '#8B5CF6', color: '#fff', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 800, flexShrink: 0 }}>
                 {i + 1}
               </div>
               <p style={{ fontSize: 13, color: '#888', lineHeight: 1.5, paddingTop: 2 }}>{s}</p>

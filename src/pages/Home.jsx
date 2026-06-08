@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { supabase } from '../supabase'
 import { useGroup } from '../hooks/useGroup'
 import { getChallenge, formatVal } from '../utils/challengeTypes'
@@ -88,7 +88,7 @@ export default function Home({ user }) {
         </h2>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 4 }}>
           <span style={{ fontSize: 16 }}>🔥</span>
-          <span style={{ color: streak > 0 ? '#E8192C' : '#555', fontSize: 13, fontWeight: 600 }}>
+          <span style={{ color: streak > 0 ? '#8B5CF6' : '#555', fontSize: 13, fontWeight: 600 }}>
             {streak > 0 ? `${streak} jour${streak > 1 ? 's' : ''} de série` : 'Commence ta série aujourd\'hui !'}
           </span>
           <span style={{ marginLeft: 'auto', fontSize: 11, color: '#555', fontWeight: 600 }}>
@@ -98,7 +98,7 @@ export default function Home({ user }) {
       </div>
 
       {/* Big today card */}
-      <div style={{ background: 'linear-gradient(135deg, #E8192C 0%, #b5101e 100%)', borderRadius: 20, padding: '1.5rem', marginBottom: '0.875rem', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #5B21B6 100%)', borderRadius: 20, padding: '1.5rem', marginBottom: '0.875rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: -20, right: -20, width: 100, height: 100, borderRadius: '50%', background: 'rgba(255,255,255,0.07)' }} />
         <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 4 }}>
           Aujourd'hui — Jour {Math.min(dayNum, duration)}/{duration}
@@ -115,7 +115,7 @@ export default function Home({ user }) {
               style={{ flex: 1, background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 10, padding: '8px 12px', fontSize: 30, fontWeight: 800, color: '#fff', outline: 'none', fontFamily: 'inherit', minWidth: 0 }}
             />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-              <button onClick={handleEdit} style={{ background: '#fff', color: '#E8192C', border: 'none', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>OK</button>
+              <button onClick={handleEdit} style={{ background: '#fff', color: '#8B5CF6', border: 'none', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>OK</button>
               <button onClick={() => setEditing(false)} style={{ background: 'rgba(255,255,255,0.2)', color: '#fff', border: 'none', borderRadius: 8, padding: '6px 12px', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}>✕</button>
             </div>
           </div>
@@ -153,12 +153,12 @@ export default function Home({ user }) {
           <button
             onClick={handleAdd}
             disabled={loading || !input}
-            style={{ background: '#E8192C', color: '#fff', border: 'none', borderRadius: 12, padding: '12px 16px', fontSize: 14, fontWeight: 700, cursor: 'pointer', flexShrink: 0, whiteSpace: 'nowrap', opacity: loading || !input ? 0.5 : 1, fontFamily: 'inherit' }}
+            style={{ background: '#8B5CF6', color: '#fff', border: 'none', borderRadius: 12, padding: '12px 16px', fontSize: 14, fontWeight: 700, cursor: 'pointer', flexShrink: 0, whiteSpace: 'nowrap', opacity: loading || !input ? 0.5 : 1, fontFamily: 'inherit' }}
           >
             AJOUTER
           </button>
         </div>
-        {msg && <p style={{ color: '#E8192C', fontSize: 13, marginTop: 10, fontWeight: 500 }}>{msg}</p>}
+        {msg && <p style={{ color: '#8B5CF6', fontSize: 13, marginTop: 10, fontWeight: 500 }}>{msg}</p>}
       </div>
 
       {/* Stats */}
@@ -170,7 +170,7 @@ export default function Home({ user }) {
         ].map(s => (
           <div key={s.label} style={{ background: '#1a1a1a', borderRadius: 14, padding: '0.875rem 0.75rem', textAlign: 'center', border: '1px solid #222' }}>
             <div style={{ fontSize: 16, marginBottom: 4 }}>{s.icon}</div>
-            <div style={{ fontSize: 18, fontWeight: 800, color: s.label === "Aujourd'hui" ? '#E8192C' : '#fff' }}>{s.val}</div>
+            <div style={{ fontSize: 18, fontWeight: 800, color: s.label === "Aujourd'hui" ? '#8B5CF6' : '#fff' }}>{s.val}</div>
             <div style={{ fontSize: 10, color: '#555', marginTop: 2, fontWeight: 500 }}>{s.label}</div>
           </div>
         ))}
@@ -190,9 +190,9 @@ export default function Home({ user }) {
               const pct = Math.round((e.count / maxCount) * 100)
               const isToday = e.date === today
               return (
-                <div key={e.id} style={{ background: '#1a1a1a', border: isToday ? '1px solid rgba(232,25,44,0.3)' : '1px solid #222', borderRadius: 12, padding: '10px 14px' }}>
+                <div key={e.id} style={{ background: '#1a1a1a', border: isToday ? '1px solid rgba(139,92,246,0.3)' : '1px solid #222', borderRadius: 12, padding: '10px 14px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-                    <span style={{ color: isToday ? '#E8192C' : '#888', fontSize: 12, fontWeight: isToday ? 700 : 400 }}>
+                    <span style={{ color: isToday ? '#8B5CF6' : '#888', fontSize: 12, fontWeight: isToday ? 700 : 400 }}>
                       {isToday ? "Aujourd'hui" : new Date(e.date + 'T00:00:00').toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' })}
                     </span>
                     <span style={{ fontWeight: 700, fontSize: 13, color: '#fff' }}>
@@ -201,7 +201,7 @@ export default function Home({ user }) {
                     </span>
                   </div>
                   <div style={{ height: 3, background: '#222', borderRadius: 2 }}>
-                    <div style={{ height: 3, background: isToday ? '#E8192C' : '#3a3a3a', borderRadius: 2, width: `${pct}%` }} />
+                    <div style={{ height: 3, background: isToday ? '#8B5CF6' : '#3a3a3a', borderRadius: 2, width: `${pct}%` }} />
                   </div>
                 </div>
               )

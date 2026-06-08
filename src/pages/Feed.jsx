@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 import { supabase } from '../supabase'
 
 function timeAgo(dt) {
@@ -122,7 +122,7 @@ export default function Feed({ user }) {
               <button onClick={cancelUpload} style={{ flex: 1, background: '#222', color: '#888', border: 'none', borderRadius: 10, padding: '11px', fontSize: 13, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>
                 Annuler
               </button>
-              <button onClick={handleUpload} disabled={uploading} style={{ flex: 2, background: '#E8192C', color: '#fff', border: 'none', borderRadius: 10, padding: '11px', fontSize: 13, fontWeight: 700, cursor: 'pointer', opacity: uploading ? 0.6 : 1, fontFamily: 'inherit' }}>
+              <button onClick={handleUpload} disabled={uploading} style={{ flex: 2, background: '#8B5CF6', color: '#fff', border: 'none', borderRadius: 10, padding: '11px', fontSize: 13, fontWeight: 700, cursor: 'pointer', opacity: uploading ? 0.6 : 1, fontFamily: 'inherit' }}>
                 {uploading ? 'Envoi...' : '📤 Partager'}
               </button>
             </div>
@@ -158,10 +158,10 @@ export default function Feed({ user }) {
                   </div>
                   <button
                     onClick={() => toggleLike(photo.id)}
-                    style={{ display: 'flex', alignItems: 'center', gap: 5, background: hasLiked(photo.id) ? 'rgba(232,25,44,0.15)' : '#222', border: hasLiked(photo.id) ? '1px solid rgba(232,25,44,0.4)' : '1px solid #2a2a2a', borderRadius: 20, padding: '5px 12px', cursor: 'pointer', fontFamily: 'inherit' }}
+                    style={{ display: 'flex', alignItems: 'center', gap: 5, background: hasLiked(photo.id) ? 'rgba(139,92,246,0.15)' : '#222', border: hasLiked(photo.id) ? '1px solid rgba(139,92,246,0.4)' : '1px solid #2a2a2a', borderRadius: 20, padding: '5px 12px', cursor: 'pointer', fontFamily: 'inherit' }}
                   >
                     <span style={{ fontSize: 14 }}>🔥</span>
-                    <span style={{ color: hasLiked(photo.id) ? '#E8192C' : '#888', fontSize: 12, fontWeight: 700 }}>{likeCount(photo.id)}</span>
+                    <span style={{ color: hasLiked(photo.id) ? '#8B5CF6' : '#888', fontSize: 12, fontWeight: 700 }}>{likeCount(photo.id)}</span>
                   </button>
                 </div>
                 {photo.caption && <p style={{ color: '#888', fontSize: 12, lineHeight: 1.4 }}>{photo.caption}</p>}

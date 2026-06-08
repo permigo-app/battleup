@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 import { useGroup } from '../hooks/useGroup'
 import { getChallenge, formatVal } from '../utils/challengeTypes'
 import { supabase } from '../supabase'
@@ -59,7 +59,7 @@ function ProfileModal({ member, entries, challenge, onClose }) {
         <div style={{ padding: '0.75rem 1.25rem 1.5rem' }}>
           {/* Header */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: '1.25rem' }}>
-            <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'rgba(232,25,44,0.15)', border: '2px solid #E8192C', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 18, color: '#E8192C', flexShrink: 0 }}>
+            <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'rgba(139,92,246,0.15)', border: '2px solid #8B5CF6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 18, color: '#8B5CF6', flexShrink: 0 }}>
               {member.pseudo.slice(0, 2).toUpperCase()}
             </div>
             <div>
@@ -97,8 +97,8 @@ function ProfileModal({ member, entries, challenge, onClose }) {
               const isT = d.date === today
               return (
                 <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, height: '100%', justifyContent: 'flex-end' }}>
-                  <div style={{ width: '100%', height: barH, background: isT ? '#E8192C' : d.count > 0 ? '#444' : '#222', borderRadius: '3px 3px 0 0' }} />
-                  <span style={{ fontSize: 9, color: isT ? '#E8192C' : '#555' }}>{d.label}</span>
+                  <div style={{ width: '100%', height: barH, background: isT ? '#8B5CF6' : d.count > 0 ? '#444' : '#222', borderRadius: '3px 3px 0 0' }} />
+                  <span style={{ fontSize: 9, color: isT ? '#8B5CF6' : '#555' }}>{d.label}</span>
                 </div>
               )
             })}
@@ -149,9 +149,9 @@ export default function Classement({ user }) {
           const isTop3 = i < 3
           const isMe = m.id === user.id
           const rs = isTop3 ? RANK_STYLES[i] : null
-          const border = isMe ? '1.5px solid #E8192C' : rs?.border || '1px solid #222'
-          const bg = isMe && !isTop3 ? 'rgba(232,25,44,0.07)' : rs?.bg || '#1a1a1a'
-          const avatarColor = isTop3 ? rs.avatarColor : isMe ? '#E8192C' : '#444'
+          const border = isMe ? '1.5px solid #8B5CF6' : rs?.border || '1px solid #222'
+          const bg = isMe && !isTop3 ? 'rgba(139,92,246,0.07)' : rs?.bg || '#1a1a1a'
+          const avatarColor = isTop3 ? rs.avatarColor : isMe ? '#8B5CF6' : '#444'
 
           return (
             <div
@@ -171,7 +171,7 @@ export default function Classement({ user }) {
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ color: '#fff', fontWeight: 600, fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {m.pseudo}
-                  {isMe && <span style={{ color: '#E8192C', fontSize: 10, fontWeight: 700, marginLeft: 5 }}>toi</span>}
+                  {isMe && <span style={{ color: '#8B5CF6', fontSize: 10, fontWeight: 700, marginLeft: 5 }}>toi</span>}
                 </p>
                 {m.today > 0 && <p style={{ color: '#555', fontSize: 10, marginTop: 1 }}>+{formatVal(m.today, challenge.key)} {challenge.unit} aujourd'hui</p>}
               </div>

@@ -1,4 +1,4 @@
-import { getChallenge, getRules } from '../utils/challengeTypes'
+﻿import { getChallenge, getRules } from '../utils/challengeTypes'
 
 export default function Technique({ user }) {
   const challengeKey = user?.group?.challenge_type ?? 'pompes'
@@ -8,7 +8,7 @@ export default function Technique({ user }) {
   return (
     <div style={{ padding: '1.25rem' }}>
       {/* Title */}
-      <h2 style={{ fontSize: 22, fontWeight: 800, color: '#E8192C', letterSpacing: '-0.3px', marginBottom: 4 }}>
+      <h2 style={{ fontSize: 22, fontWeight: 800, color: '#8B5CF6', letterSpacing: '-0.3px', marginBottom: 4 }}>
         Règles
       </h2>
       <p style={{ color: '#555', fontSize: 13, marginBottom: '1.5rem' }}>
@@ -22,7 +22,7 @@ export default function Technique({ user }) {
             key={i}
             style={{ background: '#1a1a1a', border: '1px solid #222', borderRadius: 14, padding: '14px 16px', display: 'flex', gap: 14, alignItems: 'flex-start' }}
           >
-            <div style={{ width: 26, height: 26, borderRadius: '50%', background: 'rgba(232,25,44,0.15)', border: '1px solid rgba(232,25,44,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: 12, fontWeight: 800, color: '#E8192C', marginTop: 1 }}>
+            <div style={{ width: 26, height: 26, borderRadius: '50%', background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: 12, fontWeight: 800, color: '#8B5CF6', marginTop: 1 }}>
               {i + 1}
             </div>
             <p style={{ color: '#ccc', fontSize: 14, lineHeight: 1.55 }}>{rule}</p>

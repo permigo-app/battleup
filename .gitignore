@@ -15,6 +15,15 @@ dist-ssr
 .env.local
 .env.*.local
 
+# Android signing — NE JAMAIS COMMITTER
+android/app/*.keystore
+android/app/*.jks
+android/local.properties
+
+# Android build output
+android/app/build/
+android/.gradle/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

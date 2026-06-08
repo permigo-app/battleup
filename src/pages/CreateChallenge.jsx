@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { supabase } from '../supabase'
 import { generateCode } from '../utils/generateCode'
 import { CHALLENGE_TYPES } from '../utils/challengeTypes'
@@ -72,7 +72,7 @@ export default function CreateChallenge({ authUser, onJoined, onBack }) {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#1a1a1a', borderRadius: 16, border: '1px solid #2a2a2a', padding: '12px 16px' }}>
             <button
               onClick={() => { setDuration(d => d - 1); setDurationInput(v => String(parseInt(v || 30) - 1)) }}
-              style={{ width: 44, height: 44, borderRadius: '50%', background: '#E8192C', border: 'none', color: '#fff', fontSize: 24, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, lineHeight: 1 }}
+              style={{ width: 44, height: 44, borderRadius: '50%', background: '#8B5CF6', border: 'none', color: '#fff', fontSize: 24, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, lineHeight: 1 }}
             >−</button>
             <div style={{ textAlign: 'center', flex: 1 }}>
               <input
@@ -96,7 +96,7 @@ export default function CreateChallenge({ authUser, onJoined, onBack }) {
             </div>
             <button
               onClick={() => { setDuration(d => d + 1); setDurationInput(v => String(parseInt(v || 30) + 1)) }}
-              style={{ width: 44, height: 44, borderRadius: '50%', background: '#E8192C', border: 'none', color: '#fff', fontSize: 24, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, lineHeight: 1 }}
+              style={{ width: 44, height: 44, borderRadius: '50%', background: '#8B5CF6', border: 'none', color: '#fff', fontSize: 24, fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, lineHeight: 1 }}
             >+</button>
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function CreateChallenge({ authUser, onJoined, onBack }) {
               <button
                 key={t.key}
                 onClick={() => setChallengeType(t.key)}
-                style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 16px', borderRadius: 14, border: challengeType === t.key ? '1.5px solid #E8192C' : '1px solid #2a2a2a', background: challengeType === t.key ? 'rgba(232,25,44,0.1)' : '#1a1a1a', cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left' }}
+                style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 16px', borderRadius: 14, border: challengeType === t.key ? '1.5px solid #8B5CF6' : '1px solid #2a2a2a', background: challengeType === t.key ? 'rgba(139,92,246,0.1)' : '#1a1a1a', cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left' }}
               >
                 <span style={{ fontSize: 26, flexShrink: 0 }}>{t.icon}</span>
                 <div>
@@ -117,19 +117,19 @@ export default function CreateChallenge({ authUser, onJoined, onBack }) {
                   <p style={{ color: '#555', fontSize: 11, marginTop: 1 }}>en {t.unit}</p>
                 </div>
                 {challengeType === t.key && (
-                  <span style={{ marginLeft: 'auto', color: '#E8192C', fontSize: 18 }}>✓</span>
+                  <span style={{ marginLeft: 'auto', color: '#8B5CF6', fontSize: 18 }}>✓</span>
                 )}
               </button>
             ))}
           </div>
         </div>
 
-        {error && <p style={{ color: '#E8192C', fontSize: 13, background: 'rgba(232,25,44,0.1)', padding: '10px 12px', borderRadius: 10 }}>{error}</p>}
+        {error && <p style={{ color: '#8B5CF6', fontSize: 13, background: 'rgba(139,92,246,0.1)', padding: '10px 12px', borderRadius: 10 }}>{error}</p>}
 
         <button
           onClick={handleCreate}
           disabled={loading}
-          style={{ width: '100%', background: '#E8192C', color: '#fff', border: 'none', borderRadius: 14, padding: '15px', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '0.3px', opacity: loading ? 0.6 : 1, fontFamily: 'inherit' }}
+          style={{ width: '100%', background: '#8B5CF6', color: '#fff', border: 'none', borderRadius: 14, padding: '15px', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '0.3px', opacity: loading ? 0.6 : 1, fontFamily: 'inherit' }}
         >
           {loading ? 'Création...' : 'CRÉER LE DÉFI'}
         </button>

@@ -1,4 +1,4 @@
-export default function Welcome({ authUser, onCreate, onJoin, logout }) {
+﻿export default function Welcome({ authUser, onCreate, onJoin, logout }) {
   const pseudo = authUser?.user_metadata?.pseudo
     || authUser?.user_metadata?.full_name
     || authUser?.email?.split('@')[0]
@@ -9,7 +9,7 @@ export default function Welcome({ authUser, onCreate, onJoin, logout }) {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ background: '#E8192C', borderRadius: 8, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>💪</div>
+          <div style={{ background: '#8B5CF6', borderRadius: 8, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>💪</div>
           <span style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>BattleUP</span>
         </div>
         <button onClick={logout} style={{ background: 'none', border: '1px solid #2a2a2a', borderRadius: 8, color: '#555', fontSize: 12, padding: '5px 12px', cursor: 'pointer', fontFamily: 'inherit' }}>
@@ -35,7 +35,7 @@ export default function Welcome({ authUser, onCreate, onJoin, logout }) {
           <p style={{ color: '#555', fontSize: 13, lineHeight: 1.5 }}>
             Lance un nouveau challenge, choisis la durée et le type d'activité.
           </p>
-          <div style={{ marginTop: 16, display: 'inline-flex', alignItems: 'center', background: '#E8192C', borderRadius: 10, padding: '10px 18px', gap: 6 }}>
+          <div style={{ marginTop: 16, display: 'inline-flex', alignItems: 'center', background: '#8B5CF6', borderRadius: 10, padding: '10px 18px', gap: 6 }}>
             <span style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>CRÉER UN DÉFI</span>
             <span style={{ color: '#fff', fontSize: 14 }}>→</span>
           </div>

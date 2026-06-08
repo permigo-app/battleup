@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { supabase } from '../supabase'
 
 export default function JoinChallenge({ authUser, onJoined, onBack }) {
@@ -47,7 +47,7 @@ export default function JoinChallenge({ authUser, onJoined, onBack }) {
         <div style={{ background: '#1a1a1a', borderRadius: 20, padding: '2rem', textAlign: 'center', border: '1px solid #2a2a2a' }}>
           <p style={{ color: '#555', fontSize: 13, marginBottom: '1.5rem' }}>Entre le code partagé par ton ami</p>
           <div style={{ position: 'relative', marginBottom: '1.25rem' }}>
-            <span style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: '#E8192C', fontWeight: 800, fontSize: 20 }}>#</span>
+            <span style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: '#8B5CF6', fontWeight: 800, fontSize: 20 }}>#</span>
             <input
               value={code}
               onChange={e => setCode(e.target.value.toUpperCase())}
@@ -57,11 +57,11 @@ export default function JoinChallenge({ authUser, onJoined, onBack }) {
               style={{ width: '100%', background: '#222', border: '1px solid #2f2f2f', borderRadius: 14, padding: '16px 16px 16px 44px', fontSize: 28, fontWeight: 800, color: '#fff', outline: 'none', fontFamily: 'monospace', letterSpacing: 6, textTransform: 'uppercase', textAlign: 'center', boxSizing: 'border-box' }}
             />
           </div>
-          {error && <p style={{ color: '#E8192C', fontSize: 13, background: 'rgba(232,25,44,0.1)', padding: '10px', borderRadius: 10, marginBottom: 12 }}>{error}</p>}
+          {error && <p style={{ color: '#8B5CF6', fontSize: 13, background: 'rgba(139,92,246,0.1)', padding: '10px', borderRadius: 10, marginBottom: 12 }}>{error}</p>}
           <button
             onClick={handleJoin}
             disabled={loading}
-            style={{ width: '100%', background: '#E8192C', color: '#fff', border: 'none', borderRadius: 12, padding: '14px', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '0.3px', opacity: loading ? 0.6 : 1, fontFamily: 'inherit' }}
+            style={{ width: '100%', background: '#8B5CF6', color: '#fff', border: 'none', borderRadius: 12, padding: '14px', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '0.3px', opacity: loading ? 0.6 : 1, fontFamily: 'inherit' }}
           >
             {loading ? 'Vérification...' : 'REJOINDRE'}
           </button>

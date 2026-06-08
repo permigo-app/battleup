@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 import BottomNav from './BottomNav'
 
 export default function Layout({ children, user, logout, onMesDefis, onLeaveDefi }) {
@@ -21,7 +21,7 @@ export default function Layout({ children, user, logout, onMesDefis, onLeaveDefi
       <header style={{ padding: '0.875rem 1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #1f1f1f' }}>
         {/* Logo */}
         <button onClick={onMesDefis} style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
-          <div style={{ background: '#E8192C', borderRadius: 8, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>💪</div>
+          <div style={{ background: '#8B5CF6', borderRadius: 8, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>💪</div>
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: '#fff', fontWeight: 700, fontSize: 14, letterSpacing: '-0.3px', lineHeight: 1 }}>BattleUP</p>
             <p style={{ color: '#444', fontSize: 10, marginTop: 1, maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -52,7 +52,7 @@ export default function Layout({ children, user, logout, onMesDefis, onLeaveDefi
               <div style={{ position: 'absolute', top: 'calc(100% + 6px)', right: 0, background: '#1a1a1a', border: '1px solid #2a2a2a', borderRadius: 12, overflow: 'hidden', minWidth: 180, boxShadow: '0 8px 24px rgba(0,0,0,0.5)', zIndex: 200 }}>
                 <button
                   onClick={() => { setShowMenu(false); onLeaveDefi?.() }}
-                  style={{ width: '100%', background: 'none', border: 'none', borderBottom: '1px solid #222', color: '#E8192C', fontSize: 13, fontWeight: 600, padding: '13px 16px', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', display: 'flex', alignItems: 'center', gap: 8 }}
+                  style={{ width: '100%', background: 'none', border: 'none', borderBottom: '1px solid #222', color: '#8B5CF6', fontSize: 13, fontWeight: 600, padding: '13px 16px', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', display: 'flex', alignItems: 'center', gap: 8 }}
                 >
                   <span>🚪</span> Quitter le défi
                 </button>

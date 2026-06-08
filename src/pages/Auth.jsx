@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { supabase } from '../supabase'
 
 const inputStyle = {
@@ -15,8 +15,8 @@ function Icon({ children, style }) {
   )
 }
 
-export default function Auth() {
-  const [mode, setMode] = useState('login') // 'login' | 'register'
+export default function Auth({ defaultMode = 'login' }) {
+  const [mode, setMode] = useState(defaultMode)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [pseudo, setPseudo] = useState('')
@@ -62,7 +62,7 @@ export default function Auth() {
     <div style={{ minHeight: '100vh', background: '#0f0f0f', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
       {/* Logo */}
       <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-        <div style={{ background: '#E8192C', borderRadius: 18, width: 64, height: 64, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 30, margin: '0 auto 1rem', boxShadow: '0 0 40px rgba(232,25,44,0.35)' }}>💪</div>
+        <div style={{ background: '#8B5CF6', borderRadius: 18, width: 64, height: 64, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 30, margin: '0 auto 1rem', boxShadow: '0 0 40px rgba(139,92,246,0.35)' }}>💪</div>
         <h1 style={{ fontSize: 26, fontWeight: 900, color: '#fff', letterSpacing: '-0.5px' }}>BattleUP</h1>
         <p style={{ color: '#555', fontSize: 13, marginTop: 4 }}>Qui lâche en premier ?</p>
       </div>
@@ -71,7 +71,7 @@ export default function Auth() {
       <div style={{ display: 'flex', background: '#1a1a1a', borderRadius: 12, padding: 4, marginBottom: '1.5rem', width: '100%', maxWidth: 360 }}>
         {['login', 'register'].map(m => (
           <button key={m} onClick={() => { setMode(m); setError(''); setInfo('') }}
-            style={{ flex: 1, padding: '9px', borderRadius: 9, border: 'none', fontSize: 14, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'background 0.15s', background: mode === m ? '#E8192C' : 'transparent', color: mode === m ? '#fff' : '#555' }}>
+            style={{ flex: 1, padding: '9px', borderRadius: 9, border: 'none', fontSize: 14, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'background 0.15s', background: mode === m ? '#8B5CF6' : 'transparent', color: mode === m ? '#fff' : '#555' }}>
             {m === 'login' ? 'Connexion' : 'Inscription'}
           </button>
         ))}
@@ -94,10 +94,10 @@ export default function Auth() {
           <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Mot de passe" required minLength={6} style={inputStyle} />
         </div>
 
-        {error && <p style={{ color: '#E8192C', fontSize: 13, background: 'rgba(232,25,44,0.1)', padding: '10px 12px', borderRadius: 10 }}>{error}</p>}
+        {error && <p style={{ color: '#8B5CF6', fontSize: 13, background: 'rgba(139,92,246,0.1)', padding: '10px 12px', borderRadius: 10 }}>{error}</p>}
         {info && <p style={{ color: '#22c55e', fontSize: 13, background: 'rgba(34,197,94,0.1)', padding: '10px 12px', borderRadius: 10 }}>{info}</p>}
 
-        <button type="submit" disabled={!!loading} style={{ background: '#E8192C', color: '#fff', border: 'none', borderRadius: 12, padding: '14px', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '0.3px', opacity: loading ? 0.6 : 1, fontFamily: 'inherit', marginTop: 4 }}>
+        <button type="submit" disabled={!!loading} style={{ background: '#8B5CF6', color: '#fff', border: 'none', borderRadius: 12, padding: '14px', fontSize: 15, fontWeight: 700, cursor: 'pointer', letterSpacing: '0.3px', opacity: loading ? 0.6 : 1, fontFamily: 'inherit', marginTop: 4 }}>
           {loading === 'email' ? '...' : mode === 'login' ? 'SE CONNECTER' : 'CRÉER UN COMPTE'}
         </button>
       </form>
