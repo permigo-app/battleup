@@ -74,12 +74,13 @@ export default function Feed({ user }) {
 
     const { data: urlData } = supabase.storage.from('photos').getPublicUrl(path)
 
-    await supabase.from('photos').insert({
+    const { error: insertErr } = await supabase.from('photos').insert({
       user_id: user.id,
       group_id: user.group_id,
       url: urlData.publicUrl,
       caption: caption.trim() || null,
     })
+    if (insertErr) { console.error('photo insert error:', insertErr.message); setUploading(false); return }
 
     cancelUpload()
     setUploading(false)

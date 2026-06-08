@@ -94,7 +94,7 @@ export default function CreateChallenge({ authUser, onJoined, onBack }) {
 
     if (e2) { setError('Erreur création profil : ' + e2.message); setLoading(false); return }
 
-    onJoined({ ...usr, group: grp })
+    onJoined({ ...usr, group_id: grp.id, group: grp })
   }
 
   const cat = CHALLENGE_CATALOG.find(c => c.key === category)

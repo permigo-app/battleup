@@ -43,13 +43,13 @@ export default function MesDefis({ authUser, onEnter, onCreate, logout }) {
     setJoinLoading(true)
     setJoinError('')
 
-    const { data: grp } = await supabase
+    const { data: grp, error: grpErr } = await supabase
       .from('groups')
       .select('*')
       .eq('code', joinCode.trim().toUpperCase())
       .single()
 
-    if (!grp) { setJoinError('Code invalide, vérifie et réessaie.'); setJoinLoading(false); return }
+    if (grpErr || !grp) { setJoinError('Code invalide, vérifie et réessaie.'); setJoinLoading(false); return }
 
     if (defis.some(d => d.group_id === grp.id)) {
       setJoinError('Tu participes déjà à ce défi.')

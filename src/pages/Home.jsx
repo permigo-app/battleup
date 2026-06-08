@@ -69,12 +69,13 @@ export default function Home({ user }) {
   async function handleStreak(validated) {
     setLoading(true)
     const count = validated ? 1 : 0
-    if (todayEntry) {
-      await supabase.from('entries').update({ count }).eq('id', todayEntry.id)
-    } else {
-      await supabase.from('entries').insert({ user_id: user.id, date: today, count })
-    }
-    refetch()
+    try {
+      const { error } = todayEntry
+        ? await supabase.from('entries').update({ count }).eq('id', todayEntry.id)
+        : await supabase.from('entries').insert({ user_id: user.id, date: today, count })
+      if (error) console.error('handleStreak error:', error.message)
+      else refetch()
+    } catch (e) { console.error(e) }
     setLoading(false)
   }
 
@@ -87,16 +88,17 @@ export default function Home({ user }) {
     if (!val || val <= 0) return
     setLoading(true)
     const newCount = todayCount + val
-    if (todayEntry) {
-      await supabase.from('entries').update({ count: newCount }).eq('id', todayEntry.id)
-    } else {
-      await supabase.from('entries').insert({ user_id: user.id, date: today, count: newCount })
-    }
-    setTodayCount(newCount)
-    setInput('')
-    setMsg(`+${formatVal(val, challenge.key)} ${challenge.unit} ajoutés ! ${challenge.icon}`)
-    setTimeout(() => setMsg(''), 2500)
-    refetch()
+    try {
+      const { error } = todayEntry
+        ? await supabase.from('entries').update({ count: newCount }).eq('id', todayEntry.id)
+        : await supabase.from('entries').insert({ user_id: user.id, date: today, count: newCount })
+      if (error) { console.error('handleAdd error:', error.message); setLoading(false); return }
+      setTodayCount(newCount)
+      setInput('')
+      setMsg(`+${formatVal(val, challenge.key)} ${challenge.unit} ajoutés ! ${challenge.icon}`)
+      setTimeout(() => setMsg(''), 2500)
+      refetch()
+    } catch (e) { console.error(e) }
     setLoading(false)
   }
 
@@ -104,15 +106,16 @@ export default function Home({ user }) {
     const val = parseInput(editVal)
     if (isNaN(val) || val < 0) return
     setLoading(true)
-    if (todayEntry) {
-      await supabase.from('entries').update({ count: val }).eq('id', todayEntry.id)
-    } else {
-      await supabase.from('entries').insert({ user_id: user.id, date: today, count: val })
-    }
-    setTodayCount(val)
-    setEditing(false)
-    setEditVal('')
-    refetch()
+    try {
+      const { error } = todayEntry
+        ? await supabase.from('entries').update({ count: val }).eq('id', todayEntry.id)
+        : await supabase.from('entries').insert({ user_id: user.id, date: today, count: val })
+      if (error) { console.error('handleEdit error:', error.message); setLoading(false); return }
+      setTodayCount(val)
+      setEditing(false)
+      setEditVal('')
+      refetch()
+    } catch (e) { console.error(e) }
     setLoading(false)
   }
 

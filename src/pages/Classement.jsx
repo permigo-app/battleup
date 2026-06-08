@@ -188,7 +188,7 @@ export default function Classement({ user }) {
                   {isMe && <span style={{ color: '#8B5CF6', fontSize: 10, fontWeight: 700, marginLeft: 5 }}>toi</span>}
                 </p>
                 {!isStreakType && m.today > 0 && <p style={{ color: '#555', fontSize: 10, marginTop: 1 }}>+{formatVal(m.today, challenge.key)} {challenge.unit} aujourd'hui</p>}
-                {isStreakType && <p style={{ color: '#555', fontSize: 10, marginTop: 1 }}>{m.today === 1 ? '✅ validé aujourd\'hui' : m.today === 0 && todayEntry ? '❌ craqué' : ''}</p>}
+                {isStreakType && m.today === 1 && <p style={{ color: '#22c55e', fontSize: 10, marginTop: 1 }}>✅ validé aujourd'hui</p>}
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
                 {isStreakType ? (
