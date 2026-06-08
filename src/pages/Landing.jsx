@@ -33,7 +33,7 @@ export default function Landing({ onStart, onLogin }) {
       <div style={{ padding: '2.5rem 1.5rem 0', display: 'flex', justifyContent: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
           <LogoIcon size={38} style={{ boxShadow: '0 0 24px rgba(139,92,246,0.45)', borderRadius: 11 }} />
-          <span style={{ color: '#fff', fontWeight: 900, fontSize: 22, letterSpacing: '-0.5px' }}>BattleUP</span>
+          <span style={{ color: '#fff', fontWeight: 900, fontSize: 22, letterSpacing: '-0.5px' }}>LevelUP</span>
         </div>
       </div>
 

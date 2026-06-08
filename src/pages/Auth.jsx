@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react'
 import { supabase } from '../supabase'
+import LogoIcon from '../components/LogoIcon'
 
 const inputStyle = {
   width: '100%', background: '#1a1a1a', border: '1px solid #2a2a2a',
@@ -14,8 +15,6 @@ function Icon({ children, style }) {
     </span>
   )
 }
-
-import LogoIcon from '../components/LogoIcon'
 
 export default function Auth({ defaultMode = 'login' }) {
   const [mode, setMode] = useState(defaultMode)
@@ -65,7 +64,7 @@ export default function Auth({ defaultMode = 'login' }) {
       {/* Logo */}
       <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
         <LogoIcon size={80} style={{ margin: '0 auto 1rem', boxShadow: '0 0 40px rgba(139,92,246,0.35)', borderRadius: 22 }} />
-        <h1 style={{ fontSize: 26, fontWeight: 900, color: '#fff', letterSpacing: '-0.5px' }}>BattleUP</h1>
+        <h1 style={{ fontSize: 26, fontWeight: 900, color: '#fff', letterSpacing: '-0.5px' }}>LevelUP</h1>
         <p style={{ color: '#555', fontSize: 13, marginTop: 4 }}>Qui lâche en premier ?</p>
       </div>
 

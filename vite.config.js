@@ -8,8 +8,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'BattleUP',
-        short_name: 'BattleUP',
+        name: 'LevelUP',
+        short_name: 'LevelUP',
         description: 'Défi sportif entre amis',
         theme_color: '#8B5CF6',
         background_color: '#1a1a1a',

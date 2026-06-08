@@ -102,7 +102,11 @@ function AppInner() {
 
   async function handleLeaveDefi() {
     if (!profile?.id) return
-    try { await supabase.from('users').delete().eq('id', profile.id) } catch (e) { console.error(e) }
+    const { error } = await supabase.from('users').delete().eq('id', profile.id)
+    if (error) {
+      console.error('handleLeaveDefi error:', error.message, error)
+      return
+    }
     setProfile(null)
     setView('mesdefis')
   }

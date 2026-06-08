@@ -1,8 +1,8 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+﻿import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.battleup.app',
-  appName: 'BattleUP',
+  appId: 'com.levelup.app',
+  appName: 'LevelUP',
   webDir: 'dist',
   server: {
     androidScheme: 'https',

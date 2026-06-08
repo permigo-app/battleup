@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 
 export function useUser() {
   const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem('battleup_user')
+    const saved = localStorage.getItem('levelup_user')
     return saved ? JSON.parse(saved) : null
   })
 
   const saveUser = (userData) => {
-    localStorage.setItem('battleup_user', JSON.stringify(userData))
+    localStorage.setItem('levelup_user', JSON.stringify(userData))
     setUser(userData)
   }
 
   const logout = () => {
-    localStorage.removeItem('battleup_user')
+    localStorage.removeItem('levelup_user')
     setUser(null)
   }
 

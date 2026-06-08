@@ -10,7 +10,7 @@
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <div style={{ background: '#8B5CF6', borderRadius: 8, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>💪</div>
-          <span style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>BattleUP</span>
+          <span style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>LevelUP</span>
         </div>
         <button onClick={logout} style={{ background: 'none', border: '1px solid #2a2a2a', borderRadius: 8, color: '#555', fontSize: 12, padding: '5px 12px', cursor: 'pointer', fontFamily: 'inherit' }}>
           Déconnexion

@@ -45,10 +45,12 @@ create policy "Public insert groups" on groups for insert with check (true);
 
 create policy "Public read users" on users for select using (true);
 create policy "Public insert users" on users for insert with check (true);
+create policy "Public delete users" on users for delete using (true);
 
 create policy "Public read entries" on entries for select using (true);
 create policy "Public insert entries" on entries for insert with check (true);
 create policy "Public update entries" on entries for update using (true);
+create policy "Public delete entries" on entries for delete using (true);
 
 -- ============================================================
 -- MIGRATIONS (à exécuter si la base existe déjà)

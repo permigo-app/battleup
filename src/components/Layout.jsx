@@ -24,7 +24,7 @@ export default function Layout({ children, user, logout, onMesDefis, onLeaveDefi
         <button onClick={onMesDefis} style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
           <LogoIcon size={28} />
           <div style={{ textAlign: 'left' }}>
-            <p style={{ color: '#fff', fontWeight: 700, fontSize: 14, letterSpacing: '-0.3px', lineHeight: 1 }}>BattleUP</p>
+            <p style={{ color: '#fff', fontWeight: 700, fontSize: 14, letterSpacing: '-0.3px', lineHeight: 1 }}>LevelUP</p>
             <p style={{ color: '#444', fontSize: 10, marginTop: 1, maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {user?.group?.name || 'Mon défi'}
             </p>
