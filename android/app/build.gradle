@@ -1,20 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "com.battleup.app"
+    namespace = "com.levelup.app"
     compileSdk = rootProject.ext.compileSdkVersion
 
     signingConfigs {
         release {
-            storeFile file("battleup-release.keystore")
-            storePassword "BattleUP2024!"
-            keyAlias "battleup"
-            keyPassword "BattleUP2024!"
+            storeFile file("levelup-release.keystore")
+            storePassword "LevelUP2024!"
+            keyAlias "levelup"
+            keyPassword "LevelUP2024!"
         }
     }
 
     defaultConfig {
-        applicationId "com.battleup.app"
+        applicationId "com.levelup.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

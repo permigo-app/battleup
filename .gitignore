@@ -18,6 +18,7 @@ dist-ssr
 # Android signing — NE JAMAIS COMMITTER
 android/app/*.keystore
 android/app/*.jks
+android/app/levelup-release.keystore
 android/local.properties
 
 # Android build output

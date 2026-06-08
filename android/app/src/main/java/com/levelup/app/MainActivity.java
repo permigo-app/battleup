@@ -1,4 +1,4 @@
-package com.battleup.app;
+package com.levelup.app;
 
 import com.getcapacitor.BridgeActivity;
 
