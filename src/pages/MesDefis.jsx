@@ -2,6 +2,7 @@
 import { supabase } from '../supabase'
 import { getChallenge } from '../utils/challengeTypes'
 import SuggestChallenge from '../components/SuggestChallenge'
+import LogoIcon from '../components/LogoIcon'
 
 function daysLeft(group) {
   if (!group) return null
@@ -75,7 +76,7 @@ export default function MesDefis({ authUser, onEnter, onCreate, logout }) {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.75rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ background: '#8B5CF6', borderRadius: 8, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>💪</div>
+          <LogoIcon size={28} />
           <span style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>BattleUP</span>
         </div>
         <button onClick={logout} style={{ background: 'none', border: '1px solid #2a2a2a', borderRadius: 8, color: '#555', fontSize: 12, padding: '5px 12px', cursor: 'pointer', fontFamily: 'inherit' }}>

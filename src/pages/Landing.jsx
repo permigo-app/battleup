@@ -1,4 +1,6 @@
-﻿const RACERS = [
+﻿import LogoIcon from '../components/LogoIcon'
+
+const RACERS = [
   { name: 'Lucas',   initials: 'LU', color: '#FFD700', pct: 89, emoji: '🥇', delay: 200 },
   { name: 'Camille', initials: 'CA', color: '#8B5CF6', pct: 64, emoji: '🥈', delay: 420 },
   { name: 'Toi ?',   initials: '?',  color: '#555',    pct: 41, emoji: '🥉', delay: 640 },
@@ -30,7 +32,7 @@ export default function Landing({ onStart, onLogin }) {
       {/* Logo */}
       <div style={{ padding: '2.5rem 1.5rem 0', display: 'flex', justifyContent: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
-          <div style={{ background: '#8B5CF6', borderRadius: 11, width: 38, height: 38, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 19, boxShadow: '0 0 24px rgba(139,92,246,0.45)' }}>💪</div>
+          <LogoIcon size={38} style={{ boxShadow: '0 0 24px rgba(139,92,246,0.45)', borderRadius: 11 }} />
           <span style={{ color: '#fff', fontWeight: 900, fontSize: 22, letterSpacing: '-0.5px' }}>BattleUP</span>
         </div>
       </div>

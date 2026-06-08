@@ -15,6 +15,8 @@ function Icon({ children, style }) {
   )
 }
 
+import LogoIcon from '../components/LogoIcon'
+
 export default function Auth({ defaultMode = 'login' }) {
   const [mode, setMode] = useState(defaultMode)
   const [email, setEmail] = useState('')
@@ -62,7 +64,7 @@ export default function Auth({ defaultMode = 'login' }) {
     <div style={{ minHeight: '100vh', background: '#0f0f0f', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '1.5rem' }}>
       {/* Logo */}
       <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-        <div style={{ background: '#8B5CF6', borderRadius: 18, width: 64, height: 64, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 30, margin: '0 auto 1rem', boxShadow: '0 0 40px rgba(139,92,246,0.35)' }}>💪</div>
+        <LogoIcon size={80} style={{ margin: '0 auto 1rem', boxShadow: '0 0 40px rgba(139,92,246,0.35)', borderRadius: 22 }} />
         <h1 style={{ fontSize: 26, fontWeight: 900, color: '#fff', letterSpacing: '-0.5px' }}>BattleUP</h1>
         <p style={{ color: '#555', fontSize: 13, marginTop: 4 }}>Qui lâche en premier ?</p>
       </div>

@@ -1,5 +1,6 @@
 ﻿import { useState, useEffect, useRef } from 'react'
 import BottomNav from './BottomNav'
+import LogoIcon from './LogoIcon'
 
 export default function Layout({ children, user, logout, onMesDefis, onLeaveDefi }) {
   const [showMenu, setShowMenu] = useState(false)
@@ -21,7 +22,7 @@ export default function Layout({ children, user, logout, onMesDefis, onLeaveDefi
       <header style={{ padding: '0.875rem 1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #1f1f1f' }}>
         {/* Logo */}
         <button onClick={onMesDefis} style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
-          <div style={{ background: '#8B5CF6', borderRadius: 8, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>💪</div>
+          <LogoIcon size={28} />
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: '#fff', fontWeight: 700, fontSize: 14, letterSpacing: '-0.3px', lineHeight: 1 }}>BattleUP</p>
             <p style={{ color: '#444', fontSize: 10, marginTop: 1, maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>

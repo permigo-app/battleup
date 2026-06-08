@@ -1,4 +1,5 @@
 ﻿import React, { Component, useState, useEffect } from 'react'
+import LogoIcon from './components/LogoIcon'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { supabase } from './supabase'
 import Auth from './pages/Auth'
@@ -60,7 +61,7 @@ class ErrorBoundary extends Component {
 function LoadingScreen() {
   return (
     <div style={{ minHeight: '100vh', background: '#0f0f0f', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16 }}>
-      <div style={{ background: '#8B5CF6', borderRadius: 14, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>💪</div>
+      <LogoIcon size={48} />
       <p style={{ color: '#444', fontSize: 13 }}>Chargement...</p>
     </div>
   )
