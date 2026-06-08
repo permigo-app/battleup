@@ -130,7 +130,7 @@ export default function Feed({ user }) {
         </div>
       ) : (
         <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, background: '#1a1a1a', border: '1.5px dashed #2a2a2a', borderRadius: 14, padding: '16px', cursor: 'pointer', marginBottom: '1.25rem' }}>
-          <input ref={fileRef} type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+          <input ref={fileRef} type="file" accept="image/*" capture="environment" onChange={handleFileChange} style={{ display: 'none' }} />
           <span style={{ fontSize: 20 }}>📸</span>
           <span style={{ color: '#888', fontSize: 14, fontWeight: 500 }}>Partager une photo</span>
         </label>

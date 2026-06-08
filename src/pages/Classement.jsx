@@ -121,13 +121,27 @@ function ProfileModal({ member, entries, challenge, onClose }) {
   )
 }
 
+function memberStreak(userId, entries) {
+  const dateSet = new Set(entries.filter(e => e.user_id === userId && e.count > 0).map(e => e.date))
+  let s = 0; const d = new Date()
+  while (true) {
+    const ds = d.toISOString().slice(0, 10)
+    if (dateSet.has(ds)) { s++; d.setDate(d.getDate() - 1) } else break
+  }
+  return s
+}
+
 export default function Classement({ user }) {
   if (!user) return null
   const { getRanking, group, entries } = useGroup(user.group_id)
   const [selected, setSelected] = useState(null)
 
-  const ranking = getRanking()
+  const isStreakType = (group?.defi_type ?? user.group?.defi_type ?? 'cumul') === 'streak'
   const challenge = getChallenge(group?.challenge_type || user.group?.challenge_type)
+
+  const ranking = isStreakType
+    ? getRanking().map(m => ({ ...m, total: memberStreak(m.id, entries), today: entries.find(e => e.user_id === m.id && e.date === new Date().toISOString().slice(0,10))?.count ?? 0 })).sort((a,b) => b.total - a.total)
+    : getRanking()
 
   return (
     <div style={{ padding: '1.25rem' }}>
@@ -173,11 +187,21 @@ export default function Classement({ user }) {
                   {m.pseudo}
                   {isMe && <span style={{ color: '#8B5CF6', fontSize: 10, fontWeight: 700, marginLeft: 5 }}>toi</span>}
                 </p>
-                {m.today > 0 && <p style={{ color: '#555', fontSize: 10, marginTop: 1 }}>+{formatVal(m.today, challenge.key)} {challenge.unit} aujourd'hui</p>}
+                {!isStreakType && m.today > 0 && <p style={{ color: '#555', fontSize: 10, marginTop: 1 }}>+{formatVal(m.today, challenge.key)} {challenge.unit} aujourd'hui</p>}
+                {isStreakType && <p style={{ color: '#555', fontSize: 10, marginTop: 1 }}>{m.today === 1 ? '✅ validé aujourd\'hui' : m.today === 0 && todayEntry ? '❌ craqué' : ''}</p>}
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                <p style={{ color: isTop3 ? RANK_STYLES[i].avatarColor : '#fff', fontWeight: 800, fontSize: 15 }}>{formatVal(m.total, challenge.key)}</p>
-                <p style={{ color: '#444', fontSize: 10 }}>{challenge.unit}</p>
+                {isStreakType ? (
+                  <>
+                    <p style={{ color: isTop3 ? RANK_STYLES[i].avatarColor : '#fff', fontWeight: 800, fontSize: 15 }}>{m.total} 🔥</p>
+                    <p style={{ color: '#444', fontSize: 10 }}>jours</p>
+                  </>
+                ) : (
+                  <>
+                    <p style={{ color: isTop3 ? RANK_STYLES[i].avatarColor : '#fff', fontWeight: 800, fontSize: 15 }}>{formatVal(m.total, challenge.key)}</p>
+                    <p style={{ color: '#444', fontSize: 10 }}>{challenge.unit}</p>
+                  </>
+                )}
               </div>
             </div>
           )

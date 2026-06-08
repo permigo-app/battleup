@@ -1,6 +1,6 @@
 ﻿import { useState, useEffect } from 'react'
 import { supabase } from '../supabase'
-import { getChallenge } from '../utils/challengeTypes'
+import { getChallenge, CHALLENGE_THUMBS } from '../utils/challengeTypes'
 import SuggestChallenge from '../components/SuggestChallenge'
 import LogoIcon from '../components/LogoIcon'
 
@@ -85,10 +85,7 @@ export default function MesDefis({ authUser, onEnter, onCreate, logout }) {
       </div>
 
       {/* Title */}
-      <h1 style={{ fontSize: 24, fontWeight: 900, color: '#fff', letterSpacing: '-0.4px', marginBottom: 4 }}>Mes défis</h1>
-      <p style={{ color: '#555', fontSize: 13, marginBottom: '1.5rem' }}>
-        Bonjour {pseudo} 👋 — rejoins ou crée un défi.
-      </p>
+      <h1 style={{ fontSize: 24, fontWeight: 900, color: '#fff', letterSpacing: '-0.4px', marginBottom: 16 }}>Mes défis</h1>
 
       {/* Action buttons */}
       <div style={{ display: 'flex', gap: 10, marginBottom: '1.5rem' }}>
@@ -148,7 +145,7 @@ export default function MesDefis({ authUser, onEnter, onCreate, logout }) {
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <p style={{ color: '#555', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 2 }}>
+            <p style={{ color: '#555', fontSize: 12, marginBottom: 2 }}>
               {defis.length} défi{defis.length > 1 ? 's' : ''} actif{defis.length > 1 ? 's' : ''}
             </p>
             {defis.map(defi => {
@@ -161,29 +158,40 @@ export default function MesDefis({ authUser, onEnter, onCreate, logout }) {
               return (
                 <div
                   key={defi.id}
-                  style={{ background: '#1a1a1a', border: '1px solid #222', borderRadius: 16, padding: '1rem 1.25rem', display: 'flex', alignItems: 'center', gap: 12 }}
+                  style={{ background: '#1a1a1a', border: `1px solid ${ended ? '#222' : 'rgba(139,92,246,0.2)'}`, borderRadius: 16, padding: '0.875rem 1rem', display: 'flex', alignItems: 'center', gap: 12 }}
                 >
-                  <div style={{ width: 46, height: 46, borderRadius: 12, background: ended ? '#222' : 'rgba(139,92,246,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, flexShrink: 0, border: ended ? '1px solid #2a2a2a' : '1px solid rgba(139,92,246,0.2)' }}>
-                    {challenge.icon}
+                  {/* Thumbnail image */}
+                  <div style={{ width: 52, height: 52, borderRadius: 12, flexShrink: 0, overflow: 'hidden', position: 'relative', background: '#2a2a2a' }}>
+                    {CHALLENGE_THUMBS[challenge.key] && (
+                      <img
+                        src={CHALLENGE_THUMBS[challenge.key]}
+                        alt=""
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', opacity: ended ? 0.4 : 0.85 }}
+                      />
+                    )}
+                    {/* Violet overlay */}
+                    <div style={{ position: 'absolute', inset: 0, background: ended ? 'rgba(0,0,0,0.4)' : 'rgba(139,92,246,0.25)' }} />
                   </div>
 
+                  {/* Info */}
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <p style={{ color: ended ? '#555' : '#fff', fontWeight: 700, fontSize: 14, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {group.name}
                     </p>
-                    <p style={{ color: '#555', fontSize: 11, marginTop: 2 }}>
-                      {challenge.label}
-                      {left !== null && (
-                        <span style={{ marginLeft: 8, color: ended ? '#444' : left <= 3 ? '#8B5CF6' : '#666' }}>
-                          · {ended ? 'Terminé' : `${left}j restants`}
-                        </span>
-                      )}
+                    <p style={{ color: '#666', fontSize: 11, marginTop: 3 }}>
+                      {challenge.icon} {challenge.label}
                     </p>
+                    {left !== null && (
+                      <p style={{ color: ended ? '#444' : left <= 3 ? '#8B5CF6' : '#555', fontSize: 11, fontWeight: 600, marginTop: 2 }}>
+                        {ended ? 'Terminé' : `${left} jour${left > 1 ? 's' : ''} restants`}
+                      </p>
+                    )}
                   </div>
 
+                  {/* Button */}
                   <button
                     onClick={() => onEnter(defi)}
-                    style={{ background: ended ? '#1f1f1f' : '#8B5CF6', color: ended ? '#555' : '#fff', border: ended ? '1px solid #2a2a2a' : 'none', borderRadius: 10, padding: '9px 14px', fontSize: 13, fontWeight: 700, cursor: ended ? 'default' : 'pointer', flexShrink: 0, fontFamily: 'inherit' }}
+                    style={{ background: ended ? '#1f1f1f' : '#8B5CF6', color: ended ? '#555' : '#fff', border: ended ? '1px solid #2a2a2a' : 'none', borderRadius: 10, padding: '9px 14px', fontSize: 13, fontWeight: 700, cursor: ended ? 'default' : 'pointer', flexShrink: 0, fontFamily: 'inherit', whiteSpace: 'nowrap' }}
                   >
                     {ended ? 'Voir' : 'Entrer →'}
                   </button>
