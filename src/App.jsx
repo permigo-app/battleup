@@ -102,9 +102,19 @@ function AppInner() {
 
   async function handleLeaveDefi() {
     if (!profile?.id) return
-    const { error } = await supabase.from('users').delete().eq('id', profile.id)
+    const { error, count } = await supabase
+      .from('users')
+      .delete({ count: 'exact' })
+      .eq('id', profile.id)
+
     if (error) {
-      console.error('handleLeaveDefi error:', error.message, error)
+      console.error('handleLeaveDefi error:', error.message)
+      alert('Erreur lors de la suppression : ' + error.message)
+      return
+    }
+    if (count === 0) {
+      console.warn('handleLeaveDefi: 0 rows deleted — RLS policy missing?')
+      alert('Impossible de quitter le défi. Contacte le support.')
       return
     }
     setProfile(null)
